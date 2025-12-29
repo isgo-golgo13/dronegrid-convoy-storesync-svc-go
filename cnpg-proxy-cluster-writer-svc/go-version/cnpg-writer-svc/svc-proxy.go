@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cnpg-writersvc/svckit" // Adjust this path if needed
+	"cnpg-proxy-cluster-writer-svc/svckit" // Adjust this path if needed
 	"context"
 	"log"
 	"net/http"

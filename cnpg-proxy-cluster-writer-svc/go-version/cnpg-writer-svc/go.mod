@@ -1,4 +1,4 @@
-module cnpg-writersvc
+module cnpg-proxy-cluster-writer-svc
 
 go 1.23.1
 
