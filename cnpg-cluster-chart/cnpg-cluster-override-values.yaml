@@ -5,9 +5,9 @@ superuserSecret:
   password: supersecretpassword
 
 appUserSecret:
-  name: eql-user-secret
-  username: eql
-  password: eqlpassword
+  name: enginevector-user-secret
+  username: enginevector
+  password: enginevectorpassword
 
 
 # Values.yaml for CloudNativePG with Rook Ceph #
@@ -79,9 +79,9 @@ rookCeph:
 
 
 # CloudNativePG Cluster Settings
-cloudNativePG:
-  name: eql-storage-postgresql-cluster
-  namespace: eql-cnpg-cluster-projvol
+cnpg:
+  name: eginevector-cnpg-cluster
+  namespace: enginevector-cnpg-cluster
   instances: 3
   cpuRequest: 500m
   memoryRequest: 1Gi
@@ -96,8 +96,8 @@ cloudNativePG:
 
   bootstrap:
     initdb:
-      database: eql
-      owner: eql
+      database: enginevector-lottery
+      owner: enginevector
       dataChecksums: true
       localeSettings:
         encoding: UTF8
@@ -124,7 +124,7 @@ cloudNativePG:
       synchronousCommit: on
     pg_hba:
       - local    all    all    peer  # For local peer authentication
-      - host     eql    eql    0.0.0.0/0    md5
+      - host     enginevector    enginevector    0.0.0.0/0    md5
       - host     all    all    ::/0         md5
       - host     all    all    all          md5
 
@@ -132,5 +132,5 @@ cloudNativePG:
       method: "first"
       number: 1
   schemaConfigMap:
-    name: cloudnativepg-eql-schema
+    name: cnpg-enginevector-schema
     key: schema.sql

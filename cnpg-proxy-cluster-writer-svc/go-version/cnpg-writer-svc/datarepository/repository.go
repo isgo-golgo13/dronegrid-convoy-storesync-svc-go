@@ -41,7 +41,7 @@ func NewRepository(db *sqlx.DB) *Repository {
 func (repo *Repository) InsertGame(game Game) (string, error) {
 	var gameID string
 	query := `
-        INSERT INTO eql_games (game_name, start_time, end_time, status)
+        INSERT INTO enginevector_games (game_name, start_time, end_time, status)
         VALUES ($1, $2, $3, $4)
         RETURNING game_id
     `
@@ -56,7 +56,7 @@ func (repo *Repository) InsertGame(game Game) (string, error) {
 func (repo *Repository) InsertPlayer(player Player) (string, error) {
 	var playerID string
 	query := `
-        INSERT INTO eql_game_players (player_name, email, join_date)
+        INSERT INTO enginevector_game_players (player_name, email, join_date)
         VALUES ($1, $2, $3)
         RETURNING player_id
     `
@@ -70,7 +70,7 @@ func (repo *Repository) InsertPlayer(player Player) (string, error) {
 
 func (repo *Repository) InsertTicket(ticket Ticket) error {
 	query := `
-        INSERT INTO eql_game_tickets (game_id, purchase_time, player_id, ticket_number, status, prize_amount)
+        INSERT INTO enginevector_game_tickets (game_id, purchase_time, player_id, ticket_number, status, prize_amount)
         VALUES ($1, $2, $3, $4, $5, $6)
     `
 	_, err := repo.DB.Exec(query, ticket.GameID, ticket.PurchaseTime, ticket.PlayerID, ticket.TicketNumber, ticket.Status, ticket.PrizeAmount)

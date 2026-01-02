@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"cnpg-writersvc/datarepository"
+	"cnpg-proxy-cluster-writer-svc/datarepository"
 
 	"github.com/jmoiron/sqlx"
 )
