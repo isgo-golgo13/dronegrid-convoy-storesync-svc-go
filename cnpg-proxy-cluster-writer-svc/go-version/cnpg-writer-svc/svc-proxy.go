@@ -9,11 +9,14 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/jmoiron/sqlx"
 )
 
 func main() {
+	var sqlDBCtx sqlx.DB
 	// Create a new router
-	r := svckit.NewRouter()
+	r := svckit.NewRouter(&sqlDBCtx)
 
 	// Set up the server
 	srv := &http.Server{
