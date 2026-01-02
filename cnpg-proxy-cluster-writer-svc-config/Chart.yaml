@@ -1,6 +1,6 @@
 apiVersion: v2
-name: no-ddosify-cnpg-cluster-writer-scaled-down
-description: A Helm chart for deploying Cloud-Native PostgreSQL Writer for Scaled Down EQL DB
+name: cnpg-proxy-cluster-writer-svc-config
+description: A Helm chart for deploying Cloud-Native PostgreSQL Writer for EngineVector Lottery Games DB
 type: application
 version: 1.0.0
 appVersion: "1.0.0"

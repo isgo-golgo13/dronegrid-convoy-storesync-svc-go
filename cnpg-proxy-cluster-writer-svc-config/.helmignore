@@ -15,3 +15,5 @@
 # Various IDEs
 .project
 .vscode/
+
+.DS_Store

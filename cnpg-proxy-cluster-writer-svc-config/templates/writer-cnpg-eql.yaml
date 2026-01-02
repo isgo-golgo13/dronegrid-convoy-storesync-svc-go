@@ -1,38 +1,38 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Release.Name }}-cnpg-eql-insert
-  namespace: {{ .Values.cloudNativePG.namespace }}
+  name: "{{ .Release.Name }}-cnpg-enginevector-insert"
+  namespace: {{ .Values.cnpg.namespace }}
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: {{ .Values.cloudNativePG.namespace }}
+    meta.helm.sh/release-namespace: {{ .Values.cnpg.namespace }}
   labels:
     app.kubernetes.io/managed-by: "Helm"
 spec:
   template:
     spec:
       containers:
-      - name: cpng-eql-insert
+      - name: cpng-enginevector-insert
         image: postgres:15  # PostgreSQL client image
         env:
           - name: PGPASSWORD
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.cloudNativePG.appUserSecret.name }}
+                name: {{ .Values.cnpg.appUserSecret.name }}
                 key: password
           - name: PGUSER
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.cloudNativePG.appUserSecret.name }}
+                name: {{ .Values.cnpg.appUserSecret.name }}
                 key: username
           - name: PGDATABASE
             value: eql
           - name: PGHOST
-            value: {{ .Values.cloudNativePG.primaryServiceName }}  # Use the primary service endpoint
+            value: {{ .Values.cnpg.primaryServiceName }}  # Use the primary service endpoint
         command: ["psql"]
         args:
           - "-f"
-          - "/config/cnpg-eql-insert.sql"  # Refers to the path mounted in the configMap volume
+          - "/config/cnpg-enginevector-insert.sql"  # Refers to the path mounted in the configMap volume
         volumeMounts:
           - name: sql-config
             mountPath: /config
@@ -40,5 +40,5 @@ spec:
       volumes:
         - name: sql-config
           configMap:
-            name: {{ .Release.Name }}-cpng-eql-insert-config
+            name: "{{ .Release.Name }}-cpng-enginevector-insert-config"
   backoffLimit: 3
