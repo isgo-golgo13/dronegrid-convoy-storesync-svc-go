@@ -1,4 +1,4 @@
-# dronegrid-storesync-svc-go
+# dronegrid-convoy-storesync-svc-go
 
 Drone P2P Storage Synching Transaction and Drone Enemy Target Analytic Query Engine and Dropout Resynching Service using Go, Redis, NATS JetStream, DuckDB OLAP and Cloud-Native Postgres SQL Cluster Operator (Kubernetes)
 
