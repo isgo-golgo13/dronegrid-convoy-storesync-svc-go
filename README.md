@@ -1,6 +1,6 @@
-# Cloud-Native Postgres Lottery Tx Application 
+# dronegrid-storesync-svc-go
 
-This Git repository provides provisioning and configuration for CloudNativePG Postgres in HA for Kubernetes with the add-on Rook CephFS Operator Filesystem Orchestrator. This Git repository will include HA failover workflows to force-fail the CNPG database.
+Drone P2P Storage Synching Transaction and Drone Enemy Target Analytic Query Engine and Dropout Resynching Service using Go, Redis, NATS JetStream, DuckDB OLAP and Cloud-Native Postgres SQL Cluster Operator (Kubernetes)
 
 ## Prerequsites
 
